@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import { isActive } from '@/lib/helpers';
 import { NavItem } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { Dispatch, SetStateAction } from 'react';
@@ -22,7 +23,7 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
  }
 
  return (
-  <div className='flex items-center justify-between flex-grow'>
+  <div className='flex flex-col gap-11 md:flex-row items-start justify-between flex-grow'>
    <nav className='flex items-start gap-5 lg:gap-7 flex-col md:flex-row'>
     {items.map((item, index) => (
      <Link
@@ -30,7 +31,7 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
       href={item.href}
       className={cn(
        'rounded-md p-[10px] text-sm font-medium hover:bg-accent hover:text-accent-foreground',
-       path.startsWith(item.href) ? 'bg-accent' : 'transparent'
+       isActive(path, item.href) ? 'bg-accent' : 'transparent'
       )}
       onClick={() => {
        if (setOpen) setOpen(false);
@@ -40,7 +41,7 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
      </Link>
     ))}
    </nav>
-   <div className='flex gap-6'>
+   <div className='flex gap-6 w-full md:w-auto justify-center'>
     <ThemeToggle />
     <Button>Вхід</Button>
    </div>

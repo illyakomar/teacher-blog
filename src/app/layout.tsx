@@ -2,8 +2,8 @@ import { Providers } from '@/utils/theme-mode';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import './globals.css';
 import Header from '@/components/layout/header';
+import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,7 +22,9 @@ export default function RootLayout({
    <body className={`${inter.className} antialiased`}>
     <Providers>
      <Header />
-     {children}
+     <main>
+      {children}
+     </main>
     </Providers>
    </body>
   </html>

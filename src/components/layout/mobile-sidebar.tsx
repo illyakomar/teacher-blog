@@ -15,7 +15,7 @@ export function MobileSidebar() {
     <SheetTrigger asChild>
      <MenuIcon />
     </SheetTrigger>
-    <SheetContent side='left' className='!px-0'>
+    <SheetContent side='left' className='!px-0 w-[240px]'>
      <div className='space-y-4 py-4'>
       <div className='px-3 py-2'>
        <div className='p-2 mb-7'>
