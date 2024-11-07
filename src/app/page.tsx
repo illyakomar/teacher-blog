@@ -1,17 +1,17 @@
 import SubscribeForm from '@/components/forms/subscribe';
-import Hero from '@/components/layout/hero';
+import AboutInfo from '@/components/layout/about';
 import LastArticle from '@/components/layout/last-article';
 
 export default function Home() {
  return (
   <>
-   {/* Hero Component */}
-   <section className="py-14 bg-[url('/hero-bg.svg')] bg-cover bg-center">
-    <Hero />
+   {/* Info Component */}
+   <section className="py-14 bg-[url('/hero-bg-02.svg')] bg-cover bg-center">
+    <AboutInfo />
    </section>
 
    {/* Last Article Component */}
-   <section className='pt-16 pb-14 bg-gradient-to-b from-zinc-50 to-pink-50'>
+   <section className='pt-16 pb-14 bg-gradient-to-b from-slate-100 to-zinc-100'>
     <LastArticle />
    </section>
 
