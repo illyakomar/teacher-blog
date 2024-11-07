@@ -1,3 +1,4 @@
+import SubscribeForm from '@/components/forms/subscribe';
 import Hero from '@/components/layout/hero';
 import LastArticle from '@/components/layout/last-article';
 
@@ -10,8 +11,13 @@ export default function Home() {
    </section>
 
    {/* Last Article Component */}
-   <section className='py-20'>
+   <section className='pt-16 pb-14'>
     <LastArticle />
+   </section>
+
+   {/* Subscribe to Newsletter Component */}
+   <section className="py-14 bg-[url('/bg-dots.svg')] bg-cover bg-center">
+    <SubscribeForm />
    </section>
   </>
  );

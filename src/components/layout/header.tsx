@@ -1,5 +1,6 @@
 import { navItems } from '@/constants/data';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 import { LogoBigIcon } from '../icons/icons';
 import { DashboardNav } from './dashboard-nav';
 import { MobileSidebar } from './mobile-sidebar';
@@ -10,7 +11,9 @@ export default function Header() {
    <div className='mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0'>
     <div className='flex items-center justify-between'>
      <div className='flex-grow'>
-      <LogoBigIcon />
+      <Link href='/'>
+       <LogoBigIcon />
+      </Link>
      </div>
      <div className='hidden md:block flex-grow'>
       <DashboardNav items={navItems} />
