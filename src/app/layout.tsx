@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google';
 import Header from '@/components/layout/header';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'], style: ['normal'] });
 
 export const metadata: Metadata = {
  title: 'Teacher blog',
@@ -22,9 +22,7 @@ export default function RootLayout({
    <body className={`${inter.className} antialiased`}>
     <Providers>
      <Header />
-     <main>
-      {children}
-     </main>
+     <main>{children}</main>
     </Providers>
    </body>
   </html>

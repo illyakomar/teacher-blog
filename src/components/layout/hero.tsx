@@ -1,14 +1,14 @@
-import ArticleCard from '../articles/article-card';
+import ArticleHeroCard from '../articles/article-hero-card';
 import Container from './container';
 
 export default function Hero() {
  return (
   <Container>
    <div className='flex flex-col gap-6'>
-    <ArticleCard isMain={true} />
+    <ArticleHeroCard isMain={true} />
     <div className='flex gap-6 flex-wrap sm:flex-nowrap'>
-     <ArticleCard isMain={false} />
-     <ArticleCard isMain={false} />
+     <ArticleHeroCard isMain={false} />
+     <ArticleHeroCard isMain={false} />
     </div>
    </div>
   </Container>

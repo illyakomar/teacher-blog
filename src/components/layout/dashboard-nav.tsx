@@ -7,7 +7,6 @@ import { isActive } from '@/lib/helpers';
 import { NavItem } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { Dispatch, SetStateAction } from 'react';
-import { Button } from '../ui/button';
 import ThemeToggle from '../ui/theme-toggle';
 
 interface DashboardNavProps {
@@ -43,7 +42,6 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
    </nav>
    <div className='flex gap-6 w-full md:w-auto justify-center'>
     <ThemeToggle />
-    <Button>Вхід</Button>
    </div>
   </div>
  );

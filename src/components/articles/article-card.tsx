@@ -1,54 +1,36 @@
-import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Badge } from '../ui/badge';
 
-interface IProps {
- isMain: boolean;
-}
-
-const ArticleCard = (props: IProps) => {
- const { isMain } = props;
+const ArticleCard = () => {
  return (
-  <div
-   className={cn(
-    'p-4 lg:p-2.5 w-full flex flex-col lg:flex-row lg:items-center gap-7 bg-card rounded-xl shadow-md',
-    !isMain && 'w-full lg:max-w-[570px]'
-   )}
-  >
-   <div
-    className={cn(
-     'relative flex items-center justify-center lg:max-w-[536px] w-full',
-     isMain ? 'h-[300px]' : 'h-[200px]'
-    )}
-   >
-    <Image
-     src='https://teacher-blog-admin-dashboard.vercel.app/api/file/4850ed7e-b7ce-4952-b1da-cac8f08cdddb'
-     alt='Post Image'
-     fill
-     sizes='100vw'
-     style={{ objectFit: 'cover' }}
-     priority
-    />
+  <div className='flex flex-col group'>
+   <div className='relative mb-6 transition-transform group-hover:scale-105 h-72'>
+    <Link href='/home'>
+     <Image
+      src='https://teacher-blog-admin-dashboard.vercel.app/api/file/4850ed7e-b7ce-4952-b1da-cac8f08cdddb'
+      alt='Post Image'
+      fill
+      sizes='100vw'
+      style={{ objectFit: 'cover', borderRadius: '8px' }}
+      priority
+     />
+    </Link>
    </div>
-   <div>
-    <Badge variant='primary' className='mb-4'>
-     Технології
-    </Badge>
-    <h2
-     className={cn(
-      'font-bold text-primary mb-4',
-      isMain ? 'text-2xl xl:text-3xl' : 'text-lg'
-     )}
-    >
-     Begin here to obtain a brief summary encoumpany all the essential
-    </h2>
-    {isMain && (
-     <p className='text-secondary my-3'>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla id quam at
-      justo ullamcorper vulputate. Donec mattis aliquam urna
-     </p>
-    )}
+   <h3>
+    <Link href='/home' className='block text-dark font-bold text-xl mb-3.5'>
+     <span className='bg-gradient-to-r from-violet-200 to-violet-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_10px] group-hover:bg-[length:100%_10px]'>
+      Stylish Kitchen And Dining Room With Functional Ideas
+     </span>
+    </Link>
+   </h3>
+   <p className='text-secondary line-clamp-2 mb-[18px]'>
+    Lorem Ipsum is simply dummy text of the print and typesetting industry Lorem
+    Ipsum is simply dummy text of the print and typesetting industry...
+   </p>
+   <div className='flex flex-wrap gap-3 items-center justify-between'>
     <span className='text-secondary text-sm'>Sep 10, 2025</span>
+    <Badge variant='primary'>Технології</Badge>
    </div>
   </div>
  );
