@@ -11,7 +11,7 @@ export default function Home() {
    </section>
 
    {/* Last Article Component */}
-   <section className='pt-16 pb-14'>
+   <section className='pt-16 pb-14 bg-gradient-to-b from-zinc-50 to-pink-50'>
     <LastArticle />
    </section>
 

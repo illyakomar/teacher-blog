@@ -2,6 +2,7 @@ import { Providers } from '@/utils/theme-mode';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';
 import './globals.css';
 
@@ -23,6 +24,7 @@ export default function RootLayout({
     <Providers>
      <Header />
      <main>{children}</main>
+     <Footer />
     </Providers>
    </body>
   </html>
