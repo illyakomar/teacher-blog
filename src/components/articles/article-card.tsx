@@ -11,14 +11,14 @@ const ArticleCard = () => {
       src='https://teacher-blog-admin-dashboard.vercel.app/api/file/4850ed7e-b7ce-4952-b1da-cac8f08cdddb'
       alt='Post Image'
       fill
-      sizes='100vw'
+      sizes='(max-width: 640px) 100vw, (min-width: 640px) 50vw, (min-width: 1024px) 33vw'
       style={{ objectFit: 'cover', borderRadius: '8px' }}
       priority
      />
     </Link>
    </div>
    <h3>
-    <Link href='/home' className='block text-dark font-bold text-xl mb-3.5'>
+    <Link href='/home' className='block font-bold text-xl mb-3.5'>
      <span className='bg-gradient-to-r from-violet-200 to-violet-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_10px] group-hover:bg-[length:100%_10px]'>
       Stylish Kitchen And Dining Room With Functional Ideas
      </span>
