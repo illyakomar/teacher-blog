@@ -1,7 +1,18 @@
 import BookCard from '@/components/books/book-card';
 import Container from '@/components/layout/container';
+import { BookApiService } from '@/lib/api/services/book.api-service';
 
-export default function BookPage() {
+export default async function BookPage() {
+ const { data } = await BookApiService.getMany();
+
+ if (!data) {
+  return;
+ }
+
+ const bookCards = data.map((book) => (
+  <BookCard key={book._id} {...book} />
+ ));
+
  return (
   <section className='py-14'>
    <Container>
@@ -12,11 +23,7 @@ export default function BookPage() {
      </p>
     </div>
     <div className='grid gap-9 grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]'>
-     <BookCard />
-     <BookCard />
-     <BookCard />
-     <BookCard />
-     <BookCard />
+     {bookCards}
     </div>
    </Container>
   </section>

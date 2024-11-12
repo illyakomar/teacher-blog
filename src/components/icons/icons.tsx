@@ -1,3 +1,24 @@
+import {
+ Facebook,
+ Instagram,
+ Linkedin,
+ LucideIcon,
+ Send,
+ Youtube,
+} from 'lucide-react';
+
+export type Icon = LucideIcon;
+
+export type IconMap = Record<string, Icon>;
+
+export const Icons: IconMap = {
+ telegram: Send,
+ instagram: Instagram,
+ youTube: Youtube,
+ facebook: Facebook,
+ linkedin: Linkedin,
+};
+
 export const LogoBigIcon = () => (
  <svg
   width='155'
