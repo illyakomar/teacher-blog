@@ -17,6 +17,7 @@ export abstract class ApiService {
     method,
     headers,
     body: JSON.stringify(data),
+    cache: 'no-cache',
    });
    if (!response.ok) throw Error(await response.text());
    return { data: (await response.json()) as T };

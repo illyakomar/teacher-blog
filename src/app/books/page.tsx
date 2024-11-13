@@ -1,17 +1,14 @@
 import BookCard from '@/components/books/book-card';
 import Container from '@/components/layout/container';
 import { BookApiService } from '@/lib/api/services/book.api-service';
+import { notFound } from 'next/navigation';
 
 export default async function BookPage() {
  const { data } = await BookApiService.getMany();
 
- if (!data) {
-  return;
- }
+ if (!data) notFound();
 
- const bookCards = data.map((book) => (
-  <BookCard key={book._id} {...book} />
- ));
+ const bookCards = data.map((book) => <BookCard key={book._id} {...book} />);
 
  return (
   <section className='py-14'>

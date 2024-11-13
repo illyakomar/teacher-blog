@@ -1,6 +1,6 @@
 import { Icons } from '@/components/icons/icons';
 import { UserApiService } from '@/lib/api/services/user.api-service';
-import { getAuthorShortName } from '@/lib/helpers';
+import { getUserShortName } from '@/lib/helpers';
 import Image from 'next/image';
 import Link from 'next/link';
 import Container from './container';
@@ -32,7 +32,7 @@ export default async function AboutInfo() {
      </div>
      <div className='max-w-[593px] w-full'>
       <h1 className='text-2xl sm:text-4xl lg:text-[42px] xl:text-heading-2 mb-3.5'>
-       Привіт! Я<span className='font-bold'> {getAuthorShortName(data)}</span>
+       Привіт! Я<span className='font-bold'> {getUserShortName(data)}</span>
       </h1>
       <p className='text-secondary'>{description}</p>
       <div className='mt-5 flex gap-5 items-center'>
