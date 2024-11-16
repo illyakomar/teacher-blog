@@ -1,18 +1,13 @@
 import { Icons } from '@/components/icons/icons';
-import { UserApiService } from '@/lib/api/services/user.api-service';
-import { getUserShortName } from '@/lib/helpers';
+import { UserEntity } from '@/types/entities';
 import Image from 'next/image';
 import Link from 'next/link';
 import Container from './container';
 
-export default async function AboutInfo() {
- const { data } = await UserApiService.getOne();
+interface Props extends Partial<UserEntity> {}
 
- if (!data) {
-  return;
- }
-
- const { img, description, socialMedia } = data;
+export default function AboutInfo(props: Props) {
+ const { firstName, lastName, img, description, socialMedia } = props;
 
  return (
   <Container>
@@ -32,11 +27,11 @@ export default async function AboutInfo() {
      </div>
      <div className='max-w-[593px] w-full'>
       <h1 className='text-2xl sm:text-4xl lg:text-[42px] xl:text-heading-2 mb-3.5'>
-       Привіт! Я<span className='font-bold'> {getUserShortName(data)}</span>
+       Привіт! Я<span className='font-bold'> {`${firstName} ${lastName}`}</span>
       </h1>
       <p className='text-secondary'>{description}</p>
       <div className='mt-5 flex gap-5 items-center'>
-       {socialMedia.map((social) => {
+       {socialMedia?.map((social) => {
         const Icon = Icons[social.icon as keyof typeof Icons];
         return (
          <Link key={social._id} href={social.url ?? '#'} target='_blank'>

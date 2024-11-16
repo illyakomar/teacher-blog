@@ -1,16 +1,24 @@
-import AboutInfo from '@/components/layout/about';
 import Container from '@/components/layout/container';
+import { UserApiService } from '@/lib/api/services/user.api-service';
+import { notFound } from 'next/navigation';
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
-export default function AuthorPage() {
+export default async function AuthorPage() {
+ const { data } = await UserApiService.getOne();
+
+ if (!data) notFound();
+
  return (
   <section className='py-14'>
    <Container>
-    <div className='mb-12 flex justify-center flex-col items-center'>
-     <h1 className='text-2xl font-bold sm:text-4xl mb-4'>Про автора</h1>
-    </div>
-    <div className='flex flex-col gap-4 items-center'>
-     <AboutInfo />
-     <hr className='flex justify-center h-px w-1/2 border-0 bg-slate-300 md:max-w-sm' />
+    <div className='max-w-[770px] mx-auto'>
+     <Markdown
+      className='prose max-w-none prose-h1:text-center'
+      remarkPlugins={[remarkGfm]}
+     >
+      {data.additionalInformation}
+     </Markdown>
     </div>
    </Container>
   </section>

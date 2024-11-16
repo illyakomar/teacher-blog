@@ -9,6 +9,15 @@ export interface ArticleEntity {
  updatedAt: Date;
 }
 
+export interface ArticleEntityWithPagination {
+ docs: ArticleEntity[];
+ totalDocs: number;
+ limit: number;
+ totalPages: number;
+ page: number;
+ pagingCounter: number;
+}
+
 export interface UserEntity {
  _id: string;
  firstName: string;
