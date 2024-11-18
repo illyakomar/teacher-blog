@@ -1,4 +1,3 @@
-import ArticleCard from '@/components/articles/article-card';
 import Container from '@/components/layout/container';
 import {
  Pagination,
@@ -18,14 +17,7 @@ export default function ArticlePage() {
       Оберіть статтю, щоб переглянути детальну інформацію
      </p>
     </div>
-    <div className='grid gap-7 grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]'>
-     <ArticleCard />
-     <ArticleCard />
-     <ArticleCard />
-     <ArticleCard />
-     <ArticleCard />
-     <ArticleCard />
-    </div>
+    <div className='grid gap-7 grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]'></div>
     <div className='mt-12'>
      <Pagination>
       <PaginationContent>

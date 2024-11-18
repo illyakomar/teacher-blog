@@ -9,11 +9,8 @@ interface Props {
 
 export default function LastArticle(props: Props) {
  const { data } = props;
- if (!Array.isArray(data)) return;
 
- console.log(props);
-
- const articlesCard = data.map((article) => (
+ const articlesCard = data?.map((article) => (
   <ArticleCard key={article._id} {...article} />
  ));
 
