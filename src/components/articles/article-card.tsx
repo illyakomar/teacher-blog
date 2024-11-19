@@ -20,7 +20,6 @@ const ArticleCard = (props: Props) => {
       sizes='(max-width: 640px) 100vw, (min-width: 640px) 50vw, (min-width: 1024px) 33vw'
       style={{ objectFit: 'cover', borderRadius: '8px' }}
       priority
-      placeholder='blur'
      />
     </Link>
    </div>

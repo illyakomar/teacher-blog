@@ -1,10 +1,13 @@
 import { AuthorsEntity, UserEntity } from '@/types/entities';
 
 export const isActive = (currentPath: string, itemPath: string) => {
- if (itemPath === '/') {
-  return currentPath === itemPath;
+ const cleanCurrentPath = currentPath.split('?')[0];
+ const cleanItemPath = itemPath.split('?')[0];
+
+ if (cleanItemPath === '/') {
+  return cleanCurrentPath === cleanItemPath;
  }
- return currentPath.startsWith(itemPath);
+ return cleanCurrentPath.startsWith(cleanItemPath);
 };
 
 export const getFullDate = (date: Date | undefined) => {
@@ -14,8 +17,8 @@ export const getFullDate = (date: Date | undefined) => {
 };
 
 export const getAuthorShortName = (author: AuthorsEntity) => {
-  return `${author.firstName[0]}.${author.patronymic[0]}. ${author.lastName}`;
- };
+ return `${author.firstName[0]}.${author.patronymic[0]}. ${author.lastName}`;
+};
 
 export const getUserShortName = (author: UserEntity) => {
  return `${author.firstName} ${author.lastName}`;
