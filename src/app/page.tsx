@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 export default async function Home() {
  const [user, articles] = await Promise.all([
   UserApiService.getOne(),
-  ArticleApiService.getLast(),
+  ArticleApiService.getLast(1, 6),
  ]);
 
  if (!user && !articles) notFound();

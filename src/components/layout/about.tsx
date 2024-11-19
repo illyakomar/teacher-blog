@@ -22,6 +22,7 @@ export default function AboutInfo(props: Props) {
         sizes='165px'
         style={{ objectFit: 'cover' }}
         priority
+        placeholder='blur'
        />
       </div>
      </div>

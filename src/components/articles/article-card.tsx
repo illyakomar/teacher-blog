@@ -20,12 +20,13 @@ const ArticleCard = (props: Props) => {
       sizes='(max-width: 640px) 100vw, (min-width: 640px) 50vw, (min-width: 1024px) 33vw'
       style={{ objectFit: 'cover', borderRadius: '8px' }}
       priority
+      placeholder='blur'
      />
     </Link>
    </div>
    <div className='line-clamp-2'>
     <h3>
-     <Link href='/home' className='block font-bold text-xl'>
+     <Link href={`/articles/${_id}`} className='block font-bold text-xl'>
       <span className='bg-gradient-to-r from-violet-200 to-violet-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_10px] group-hover:bg-[length:100%_10px]'>
        {title}
       </span>
