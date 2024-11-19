@@ -16,6 +16,8 @@ export interface ArticleEntityWithPagination {
  totalPages: number;
  page: number;
  pagingCounter: number;
+ hasPrevPage: boolean;
+ hasNextPage: boolean;
 }
 
 export interface UserEntity {

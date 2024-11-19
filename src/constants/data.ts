@@ -7,7 +7,7 @@ export const navItems: NavItem[] = [
  },
  {
   title: 'Статті',
-  href: '/articles',
+  href: '/articles?page=1',
  },
  {
   title: 'Книги',

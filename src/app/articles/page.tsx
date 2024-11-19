@@ -1,4 +1,6 @@
+import ArticleCard from '@/components/articles/article-card';
 import Container from '@/components/layout/container';
+import EmptyListWindow from '@/components/layout/empty-list';
 import {
  Pagination,
  PaginationContent,
@@ -6,8 +8,24 @@ import {
  PaginationNext,
  PaginationPrevious,
 } from '@/components/ui/pagination';
+import { ArticleApiService } from '@/lib/api/services/article.api-service';
+import { notFound } from 'next/navigation';
 
-export default function ArticlePage() {
+export default async function ArticlePage({
+ searchParams,
+}: {
+ searchParams: { page: string };
+}) {
+ const page = parseInt(searchParams.page) || 1;
+
+ const { data } = await ArticleApiService.getLast(page, 6);
+
+ if (!data) notFound();
+
+ const articleCards = data.docs.map((article) => (
+  <ArticleCard key={article._id} {...article} />
+ ));
+
  return (
   <section className='py-14'>
    <Container>
@@ -17,19 +35,31 @@ export default function ArticlePage() {
       Оберіть статтю, щоб переглянути детальну інформацію
      </p>
     </div>
-    <div className='grid gap-7 grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]'></div>
-    <div className='mt-12'>
-     <Pagination>
-      <PaginationContent>
-       <PaginationItem>
-        <PaginationPrevious href='#' />
-       </PaginationItem>
-       <PaginationItem>
-        <PaginationNext href='#' />
-       </PaginationItem>
-      </PaginationContent>
-     </Pagination>
-    </div>
+    {articleCards.length ? (
+     <>
+      <div className='grid gap-7 grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]'>
+       {articleCards}
+      </div>
+      <div className='mt-12'>
+       <Pagination>
+        <PaginationContent>
+         {data.hasPrevPage && (
+          <PaginationItem>
+           <PaginationPrevious href={`?page=${data.page - 1}`} />
+          </PaginationItem>
+         )}
+         {data.hasNextPage && (
+          <PaginationItem>
+           <PaginationNext href={`?page=${page + 1}`} />
+          </PaginationItem>
+         )}
+        </PaginationContent>
+       </Pagination>
+      </div>
+     </>
+    ) : (
+     <EmptyListWindow />
+    )}
    </Container>
   </section>
  );
