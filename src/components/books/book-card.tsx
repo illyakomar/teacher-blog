@@ -2,7 +2,7 @@ import { getAuthorShortName, getFullDate } from '@/lib/helpers';
 import { BookEntity } from '@/types/entities';
 import Link from 'next/link';
 
-interface Props extends Partial<BookEntity> {}
+interface Props extends BookEntity {}
 
 const BookCard = (props: Props) => {
  const { title, createdAt, description, url, authors } = props;
