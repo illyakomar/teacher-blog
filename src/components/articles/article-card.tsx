@@ -1,4 +1,4 @@
-import { getFullDate } from '@/lib/helpers';
+import { getFullDate, getImage } from '@/lib/helpers';
 import { ArticleEntity } from '@/types/entities';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -6,8 +6,10 @@ import { Badge } from '../ui/badge';
 
 interface Props extends ArticleEntity {}
 
-const ArticleCard = (props: Props) => {
+const ArticleCard = async (props: Props) => {
  const { _id, img, description, title, category, createdAt } = props;
+
+ const blurData = await getImage(`${process.env.NEXT_API_URL}/api/file/${img}`);
 
  return (
   <div className='flex flex-col group justify-between'>
@@ -20,6 +22,8 @@ const ArticleCard = (props: Props) => {
       sizes='(max-width: 640px) 100vw, (min-width: 640px) 50vw, (min-width: 1024px) 33vw'
       style={{ objectFit: 'cover', borderRadius: '8px' }}
       priority
+      placeholder='blur'
+      blurDataURL={blurData}
      />
     </Link>
    </div>

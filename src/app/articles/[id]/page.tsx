@@ -1,7 +1,7 @@
 import Container from '@/components/layout/container';
 import { Badge } from '@/components/ui/badge';
 import { ArticleApiService } from '@/lib/api/services/article.api-service';
-import { getFullDate } from '@/lib/helpers';
+import { getFullDate, getImage } from '@/lib/helpers';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Markdown from 'react-markdown';
@@ -15,6 +15,10 @@ export default async function ArticlePageInfo({
  const { data } = await ArticleApiService.selectOne(params.id);
 
  if (!data) notFound();
+
+ const blurData = await getImage(
+  `${process.env.NEXT_API_URL}/api/file/${data.img}`
+ );
 
  return (
   <section className='py-14'>
@@ -35,6 +39,8 @@ export default async function ArticlePageInfo({
        sizes='(max-width: 640px) 100vw, (min-width: 640px) 50vw, (min-width: 1024px) 33vw'
        style={{ objectFit: 'cover', borderRadius: '8px' }}
        priority
+       placeholder='blur'
+       blurDataURL={blurData}
       />
      </div>
     </div>

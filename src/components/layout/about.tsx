@@ -1,4 +1,5 @@
 import { Icons } from '@/components/icons/icons';
+import { getImage } from '@/lib/helpers';
 import { UserEntity } from '@/types/entities';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -6,8 +7,10 @@ import Container from './container';
 
 interface Props extends Partial<UserEntity> {}
 
-export default function AboutInfo(props: Props) {
+export default async function AboutInfo(props: Props) {
  const { firstName, lastName, img, description, socialMedia } = props;
+
+ const blurData = await getImage(`${process.env.NEXT_API_URL}/api/file/${img}`);
 
  return (
   <Container>
@@ -20,8 +23,10 @@ export default function AboutInfo(props: Props) {
         alt='Post Image'
         fill
         sizes='165px'
-        style={{ objectFit: 'cover' }}
+        style={{ objectFit: 'cover', borderRadius: '50%' }}
         priority
+        placeholder='blur'
+        blurDataURL={blurData}
        />
       </div>
      </div>
