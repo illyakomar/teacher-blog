@@ -1,7 +1,8 @@
 import Container from '@/components/layout/container';
 import { Badge } from '@/components/ui/badge';
 import { ArticleApiService } from '@/lib/api/services/article.api-service';
-import { getFullDate, getImage } from '@/lib/helpers';
+import { getImage } from '@/lib/getImage';
+import { getFullDate } from '@/lib/helpers';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Markdown from 'react-markdown';

@@ -1,5 +1,5 @@
 import { Icons } from '@/components/icons/icons';
-import { getImage } from '@/lib/helpers';
+import { getImage } from '@/lib/getImage';
 import { UserEntity } from '@/types/entities';
 import Image from 'next/image';
 import Link from 'next/link';

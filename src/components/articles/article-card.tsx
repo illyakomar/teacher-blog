@@ -1,4 +1,5 @@
-import { getFullDate, getImage } from '@/lib/helpers';
+import { getImage } from '@/lib/getImage';
+import { getFullDate } from '@/lib/helpers';
 import { ArticleEntity } from '@/types/entities';
 import Image from 'next/image';
 import Link from 'next/link';
