@@ -1,3 +1,13 @@
+## Blog Preview
+![BlogPage](https://github.com/user-attachments/assets/1dba9d37-92e0-4015-a8e3-62658a67ce6b)
+
+## Admin Preview
+![AdminPage](https://github.com/user-attachments/assets/9fd1d99a-fb6a-4966-9459-849facc80161)
+
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
